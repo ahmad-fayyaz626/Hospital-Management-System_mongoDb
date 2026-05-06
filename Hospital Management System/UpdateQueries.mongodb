@@ -1,0 +1,30 @@
+use("hospitalDB");
+
+// Update patient P002 ka disease
+db.patients.updateOne(
+  { patient_id: "P002" },
+  { $set: { disease: "Typhoid" } }
+);
+
+// Update patient P005 ki city
+db.patients.updateOne(
+  { patient_id: "P005" },
+  { $set: { city: "Lahore" } }
+);
+
+// Update doctor D003 ki fee
+db.doctors.updateOne(
+  { doctor_id: "D003" },
+  { $set: { fee: 1800 } }
+);
+
+db.appointments.updateMany(
+  { status: "Cancelled" },
+  { $set: { status: "Pending" } }
+);
+
+// Increase stock by 50 for all PharmaPak medicines
+db.medicines.updateMany(
+  { supplier: "PharmaPak" },
+  { $inc: { stock: 50 } }
+);

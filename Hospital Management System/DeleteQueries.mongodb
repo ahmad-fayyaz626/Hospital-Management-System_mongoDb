@@ -1,0 +1,15 @@
+use ("hospitalDB")
+// Delete appointment A013
+db.appointments.deleteOne(
+  { appointment_id: "A013" }
+);
+
+// Delete medicine M010 
+db.medicines.deleteOne(
+  { medicine_id: "M010" }
+);
+
+// Delete patient P014
+db.patients.deleteOne(
+  { patient_id: "P014" }
+);

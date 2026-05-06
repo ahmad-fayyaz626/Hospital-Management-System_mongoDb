@@ -1,0 +1,40 @@
+use ("hospitalDB")
+
+// These are filter Queries Use them one by one to get the desired output
+// Find all Male patients
+db.patients.find({ gender: "Male" });
+
+// Find patients from Multan
+db.patients.find({ city: "Multan" });
+
+// Find patients with Diabetes
+db.patients.find({ disease: "Diabetes" });
+
+// Find doctors who are available
+db.doctors.find({ available: true });
+
+// Find doctors with fee less than 1500
+db.doctors.find({ fee: { $lt: 1500 } });
+
+// Find appointments with status Confirmed
+db.appointments.find({ status: "Confirmed" });
+
+// Find medicines with stock less than 160
+db.medicines.find({ stock: { $lt: 160 } });
+
+// Find medicines supplied by PharmaPak
+db.medicines.find({ supplier: "PharmaPak" });
+
+//Sort doctors based on fee
+
+
+db.doctors.aggregate ([
+    {
+        $sort: {
+          fee: -1
+        }
+    }
+])
+
+
+

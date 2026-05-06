@@ -1,0 +1,13 @@
+use ("hospitalDB")
+// Show only name and disease of patients 
+db.patients.find({}, { name: 1, disease: 1, _id: 0 });
+
+// Show only doctor name and specialization
+db.doctors.find({}, { name: 1, specialization: 1, _id: 0 });
+
+// Show only confirmed appointments with date
+db.appointments.find(
+  { status: "Confirmed" },
+  { appointment_id: 1, patient_id: 1, date: 1, _id: 0 }
+);
+
